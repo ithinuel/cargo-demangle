@@ -3,7 +3,6 @@ extern crate clap;
 extern crate rustc_demangle;
 extern crate regex;
 
-use std::env;
 use std::io::{Read, Write};
 use std::fs::File;
 use regex::Regex;
