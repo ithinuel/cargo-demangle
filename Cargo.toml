@@ -1,0 +1,9 @@
+[package]
+name = "cargo-demangle"
+version = "0.1.0"
+authors = ["Wilfried C. <ithinuel@gmail.com>"]
+
+[dependencies]
+clap = "2.22.0"
+rustc-demangle = "0.1.4"
+regex = "0.2.1"
