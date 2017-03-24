@@ -1,6 +1,6 @@
 [package]
 name = "cargo-demangle"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Wilfried C. <ithinuel@gmail.com>"]
 license = "MIT"
 keywords = ["cargo", "demangle", "subcommand"]

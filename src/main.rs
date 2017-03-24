@@ -5,7 +5,7 @@ extern crate regex;
 
 use std::io::{Read, Write};
 use std::fs::File;
-use regex::Regex;
+use regex::{Regex, Captures};
 use rustc_demangle::demangle;
 
 const CARGO: &'static str = "cargo";
@@ -28,8 +28,6 @@ fn main() {
 }
 
 fn do_demangle(filename: String) {
-    let mut symbols = std::collections::BTreeMap::new();
-
     let re = Regex::new(r"(?m)(?P<symbol>(_ZN[0-9]+.*E))").unwrap();
 
     let mut txt = String::new();
@@ -37,18 +35,9 @@ fn do_demangle(filename: String) {
     file.read_to_string(&mut txt).unwrap();
     drop(file);
 
-    for cap in re.captures_iter(&txt) {
-        let symbol = &cap["symbol"];
-        if !symbols.contains_key(symbol) {
-            symbols.insert(symbol.to_string(), format!("{}", demangle(symbol)));
-        }
-    }
-
-    for (mangled, demangled) in symbols.iter() {
-        txt = txt.replace(mangled, demangled);
-    }
+    let result = re.replace_all(&txt, |caps: &Captures| format!("{}", demangle(&caps["symbol"])));
 
     let mut file = File::create(&filename).unwrap();
-    file.write_all(txt.as_bytes()).unwrap();
+    file.write_all(result.as_bytes()).unwrap();
     drop(file);
 }
