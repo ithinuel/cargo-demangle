@@ -12,10 +12,10 @@ First install:
 
 Then:
 
-A. Demangle from stdin  
-   `cargo objdump --release -- -d | cargo demangle | bat -l asm`
-B. Demangle from a file print to stdout  
-   `cargo demangle somefile.asm`
-C. Demangle from a file and write the result to the same file  
-   `cargo demangle -i somefile.asm`
+* Demangle from stdin  
+  `cargo objdump --release -- -d | cargo demangle | bat -l asm`
+* Demangle from a file print to stdout  
+  `cargo demangle somefile.asm`
+* Demangle from a file and write the result to the same file  
+  `cargo demangle -i somefile.asm`
 
