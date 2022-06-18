@@ -2,7 +2,7 @@
 
 ![Crates.io](https://img.shields.io/crates/v/cargo-demangle) ![Crates.io](https://img.shields.io/crates/l/cargo-demangle)
 
-Demangles the detected symbols using ![Crates.io](https://img.shields.io/crates/d/rustc-demangle).
+Demangles the detected symbols using [rustc-demangle](https://crates.io/crates/rustc-demangle).
 
 ## Usage
 
